@@ -95,16 +95,31 @@ function orderAlphabetically(moviesArray) {
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function timeChanger(string){
+  if (!string){return 0}
+  // console.log(string);
+  if(string.includes("h") && string.includes("min") ){//console.log(string)
     string = string.split(" ")
     let hours = string[0].slice(0,-1)
+    // console.log(string[0])
+
+    // console.log(string[1])
     let time = hours * 60
     let minutes = string[1].slice(0,-3)
     minutes = minutes - - 0;
     time += minutes;
-    return time;
+    return time;}
+    else if(string.includes("min") && !string.includes("h")){
+      let minutes = string.slice(0, -3)
+    minutes = minutes - - 0;
+    return minutes
+    }else if(string.includes("h") && !string.includes("min")){
+      let minutes = string.slice(0, -1)
+      minutes = minutes - - 0;
+      minutes = minutes*60
+      return minutes}
 }
 
-console.log(timeChanger('1h 31min'));
+console.log(timeChanger('7min'));
 
 
 
